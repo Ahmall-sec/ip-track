@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Death Eye Booting</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      font-size: 16px;
+    }
+
+    #terminal {
+      white-space: pre-line;
+      line-height: 1.5;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: #00ff00;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>
+  <script>
+    const terminal = document.getElementById("terminal");
+    const lines = [
+      "> DEATH EYE SYSTEM BOOTING...",
+      "> Memindai IP publik...",
+      "> Mengakses jaringan global...",
+      "> Melacak lokasi target...",
+      "> SIAP.",
+      ">> Masuk ke sistem..."
+    ];
+
+    let i = 0;
+
+    function typeLine(line) {
+      let j = 0;
+      const interval = setInterval(() => {
+        terminal.innerHTML += line[j];
+        j++;
+        if (j === line.length) {
+          clearInterval(interval);
+          terminal.innerHTML += "\n";
+          i++;
+          if (i < lines.length) {
+            setTimeout(() => typeLine(lines[i]), 500);
+          } else {
+            setTimeout(() => {
+              window.location.href = "track/tracking.html";
+            }, 1500); // Redirect setelah selesai
+          }
+        }
+      }, 50);
+    }
+
+    typeLine(lines[i]);
+  </script>
+</body>
+</html>
