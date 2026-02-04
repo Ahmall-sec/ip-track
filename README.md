@@ -59,5 +59,5 @@ death-eye-ip-tracker/
 
 1. Download atau clone repo:
    ```bash
-   git clone https://github.com/kamu/death-eye-ip-tracker.git
-   cd death-eye-ip-tracker
+   git clone https://github.com/ahmall-sec/ip-track
+   cd ip-track
